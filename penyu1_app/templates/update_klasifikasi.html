@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<br>
+
+<div class="container" style="padding-left: 150px; padding-right: 150px;">
+
+    {% if pesan %}
+    <script>
+        swal("Good job!", "{{ pesan }}", "success");
+    </script>
+    {% endif %}
+
+    <form action="{% url 'update' klasifikasi.id %}" method="post">
+        {% csrf_token %}
+
+        <br><br>
+        <h2 style="color: #191970;; font-family: Arial Narrow;">--- Update ---</h2>
+        <br>
+
+        {{ form.as_p }}
+
+        <br>
+
+        <input type="submit" value="Save" class="btn" style="background-color: #191970; color: white;">
+        <a href="/beranda/" class="btn" style="background-color: #8D6649; color: white;">Back</a>
+
+    </form>
+
+</div>
+
+<br><br>
+
+
+
+{% endblock %}
